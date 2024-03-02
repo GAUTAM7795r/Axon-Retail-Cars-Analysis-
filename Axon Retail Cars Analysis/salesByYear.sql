@@ -1,0 +1,2 @@
+select year(orderDate) as year,sum(orderdetails.quantityOrdered*orderdetails.priceEach) as sales from orderdetails join products
+on orderdetails.productCode=products.productCode join orders on orderdetails.orderNumber = orders.orderNumber group by year(orderDate) order by sales desc limit 5;
